@@ -1,34 +1,33 @@
 pipeline {
-    agent any
 
-    stages {
-        stage('Checkout') {
-            steps {
-                // Récupérer le code depuis GitHub
-                git branch: 'main', url: 'https://github.com/MedKossayBrahim/student-management.git'
-            }
-        }
+ agent any
 
-        stage('Build') {
-            steps {
-                echo 'Building project...'
-                sh 'mvn clean install'
-            }
-        }
+ tools {jdk 'JAVA_HOME’, maven 'M2_HOME'}
 
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-                sh 'mvn test'
-            }
-        }
+ stages {
 
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-                // Ici tu mets ton script de déploiement
-                // Exemple : copier un .jar ou lancer un service
-            }
-        }
-    }
+ stage('GIT') {
+
+           steps {
+
+               git branch: 'master',
+
+               url: ' https://github.com/hwafa/timesheetproject.git'
+
+          }
+
+     }
+
+ stage ('Compile Stage') {
+
+ steps {
+
+ sh 'mvn clean compile'
+
+ }
+
+ }
+
+ }
+
 }
