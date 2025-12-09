@@ -1,5 +1,6 @@
 package tn.esprit.studentmanagement.services;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.studentmanagement.entities.Department;
 import tn.esprit.studentmanagement.repositories.DepartmentRepository;
@@ -8,9 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-
+@AllArgsConstructor // Lombok generates constructor for dependency injection
 public class DepartmentService implements IDepartmentService {
-    DepartmentRepository departmentRepository;
+
+    private final DepartmentRepository departmentRepository; // final ensures it's injected
 
     @Override
     public List<Department> getAllDepartments() {
@@ -34,6 +36,6 @@ public class DepartmentService implements IDepartmentService {
 
     @Override
     public void deleteDepartment(Long idDepartment) {
-departmentRepository.deleteById(idDepartment);
+        departmentRepository.deleteById(idDepartment);
     }
 }
