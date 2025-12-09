@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class StudentTest {
+class StudentTest {
     private static final String FIRST_NAME = "John";
     private static final String LAST_NAME = "Doe";
     private static final String EMAIL = "john@example.com";
@@ -15,7 +15,7 @@ public class StudentTest {
     private static final String ADDRESS = "123 Main St";
 
     @Test
-    public void testConstructorAndGetters() {
+     void testConstructorAndGetters() {
         Department department = new Department();
         List<Enrollment> enrollments = new ArrayList<>();
         LocalDate dob = LocalDate.of(2000, 1, 1);
@@ -32,7 +32,7 @@ public class StudentTest {
     }
 
     @Test
-    public void testSetters() {
+     void testSetters() {
         Student student = new Student();
         student.setIdStudent(2L);
         student.setFirstName(FIRST_NAME);
@@ -60,7 +60,7 @@ public class StudentTest {
 
 
     @Test
-    public void testToString() {
+     void testToString() {
         Department department = new Department();
         List<Enrollment> enrollments = new ArrayList<>();
         LocalDate dob = LocalDate.of(2000, 1, 1);
